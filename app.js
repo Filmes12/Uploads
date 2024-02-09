@@ -9,6 +9,12 @@ const port = 3000;
 
 const drive = google.drive('v3');
 
+// Verifica e cria o diretório 'uploads' se ele não existir
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir);
+}
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './uploads'); // Local onde os arquivos serão temporariamente armazenados
