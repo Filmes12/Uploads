@@ -19,7 +19,7 @@ body {
 }
 
 .container {
-  background-color: #fff;
+  
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 40px;
@@ -61,12 +61,37 @@ button:hover {
   background-color: #0056b3;
 }
 
+/* Estilos para a barra de progresso */
+.progress-container {
+  width: 100%;
+  position: relative;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background-color: #4caf50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
 </style>
 <body>
-  <h1> Upload </h1>
-  <form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" accept="image/*, video/*, .txt">
-    <button type="submit">Enviar</button>
-  </form>
+  <h1>Upload de Arquivos</h1>
+  <div class="container">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="files" multiple>
+        <button type="submit">Enviar</button>
+    </form>
+  
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script> 
 </body>
 </html>
